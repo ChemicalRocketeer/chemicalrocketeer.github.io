@@ -25,16 +25,18 @@
         --color-green: #0eb46c;
       }
       html, body { all: unset; }
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        font-size: 1.1rem;
+        background: #01222b;
+        color: #839496;
+      }
       body {
         display: grid;
         height: 100vh;
         grid-template: "content" 1fr
                        "footer"  56px
                        / 1fr;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-        font-size: 1.1rem;
-        background: #01222b;
-        color: #839496;
       }
       a {
         color: #268bd2;
