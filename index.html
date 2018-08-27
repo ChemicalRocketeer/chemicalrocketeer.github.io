@@ -105,6 +105,7 @@
           whereTo.innerHTML = email
         }
 
+        // please don't spam me
         return fetch('/shoot-me-a-web.json')
         .then(response => response.json())
         .then(json => {

@@ -1,0 +1,9 @@
+{
+  "short_name": "Rocketry",
+  "name": "Digital Rocketry",
+  "start_url": "/",
+  "background_color": "#002b36",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#002b36"
+}
