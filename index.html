@@ -64,6 +64,7 @@
       .footer {
         font-size: 0.9em;
         display: flex;
+        flex-direction: row;
         align-items: start;
         justify-content: center;
       }
@@ -85,7 +86,9 @@
       <p>Welcome.</p>
     </section>
     <footer class="footer">
-      <a title="Shoot me a web?" class="shoot-me-a-web"></a>
+      <span>David Aaron Suddjian</span>
+      <span class='separator'></span>
+      <a title="Shoot me a web?" class="shoot-me-a-web">*****@digitalrocketry.com</a>
     </footer>
     <script>
       (() => {
@@ -98,13 +101,20 @@
             console.error(`Script ${localScriptNumber} failed magnificently:`, err)
           })
         }
+        window.removeChildren = node => {
+          while (node.firstChild) {
+            node.removeChild(node.firstChild);
+          }
+        }
       })()
     </script>
     <script>
       patience(() => {
         const injectEmail = email => whereTo => {
+          removeChildren(whereTo)
           whereTo.href = `mailto:${email}`
           whereTo.innerHTML = email
+          whereTo.classList.add('populated')
         }
 
         // please don't spam me
