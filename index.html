@@ -5,9 +5,9 @@
     <link rel="shortcut icon" href="favicon.ico"/>
     <style>
       :root {
-        --color-base-1: #002b36;
-        --color-base-2: #93a1a1;
-        --color-base-3: #fdf6e3;
+        --color-dark: #002b36;
+        --color-med: #839496;
+        --color-light: #fdf6e3;
         --color-blue: #268bd2;
         --color-magenta: #d33682;
         --color-violet: #6c71c4;
@@ -21,16 +21,16 @@
         grid-template: "content" 1fr
                        "footer"  56px
                        / 1fr;
-        background: var(--color-base-1);
-        color: var(--color-base-2);
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
         font-size: 1.1rem;
+        background: var(--color-dark);
+        color: var(--color-med);
       }
       a {
         color: var(--color-blue);
       }
       a:hover {
-        color: var(--color-base-3);
+        color: var(--color-light);
       }
       a:active {
         color: var(--color-orange);
