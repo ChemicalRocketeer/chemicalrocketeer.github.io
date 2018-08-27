@@ -102,7 +102,7 @@
       patience(() => {
         const injectEmail = email => whereTo => {
           whereTo.href=`mailto:${email}`
-          whereTo.appendChild(document.createTextNode(email))
+          whereTo.innerHTML = email
         }
 
         return fetch('/shoot-me-a-web.json')
