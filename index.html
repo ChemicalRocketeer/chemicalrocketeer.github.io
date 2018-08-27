@@ -4,7 +4,7 @@
     <!--
       Hello! I'm flattered you're looking at my source code!
 
-      Let me just tidy up a little bit...
+      Let me just tidy up a bit...
     -->
     <title>Digital Rocketry - David Aaron Suddjian</title>
     <meta name="Description" content="Digital Rocketry is an anthology of software playthings and musings by David Aaron Suddjian">
@@ -14,30 +14,32 @@
     <link rel="manifest" href="/manifest.json">
     <style>
       :root {
+        /* Almost exactly copying the solarized theme */
         --color-dark: #002b36;
         --color-darker: #01222b;
         --color-med: #839496;
         --color-light: #fdf6e3;
         --color-lightish: #eee8d5;
         --color-blue: #268bd2;
-        --color-magenta: #d33682;
         --color-violet: #6c71c4;
+        --color-magenta: #d33682;
         --color-red: #dc322f;
         --color-orange: #cb4b16;
-        --color-green: #0eb46c;
+        --color-yellow: #b58900;
+        --color-green: #859900;
+        --color-cyan:#2aa198;
       }
       html, body { all: unset; }
       body {
         display: grid;
         height: 100vh;
         grid-template: "content" 1fr
-                       "footer"  56px
-                       / 1fr;
+                       "footer"  auto
+                       / 100vw;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
         font-size: 1.1rem;
         background: #01222b;
         color: #839496;
-        transition: all 0.2s;
       }
       a {
         color: #268bd2;
@@ -58,8 +60,8 @@
         margin: 1em 0;
       }
       .content {
-        padding: 0 10vw;
-        align-self: center;
+        margin: auto 0;
+        padding: 0 8vw 24px 8vw;
       }
       .footer {
         font-size: 0.9em;
@@ -67,6 +69,11 @@
         flex-direction: row;
         align-items: start;
         justify-content: center;
+        flex-wrap: wrap;
+        margin: 16px 0;
+      }
+      .footer .item {
+        margin: 6px 16px;
       }
     </style>
   </head>
@@ -86,9 +93,8 @@
       <p>Welcome.</p>
     </section>
     <footer class="footer">
-      <span>David Aaron Suddjian</span>
-      <span class='separator'></span>
-      <a title="Shoot me a web?" class="shoot-me-a-web">*****@digitalrocketry.com</a>
+      <span class="item">David Aaron Suddjian</span>
+      <a title="Shoot me a web?" class="item shoot-me-a-web" href="#">*****@digitalrocketry.com</a>
     </footer>
     <script>
       (() => {
