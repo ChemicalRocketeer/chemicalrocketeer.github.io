@@ -108,7 +108,7 @@
         return fetch('/shoot-me-a-web.json')
         .then(response => response.json())
         .then(json => {
-          document.getElementsByClassName('shoot-me-a-web')
+          document.querySelectorAll('.shoot-me-a-web')
           .forEach(injectEmail(json.email))
         })
       })
