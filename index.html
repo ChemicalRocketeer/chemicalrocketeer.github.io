@@ -100,8 +100,8 @@
     </script>
     <script>
       patience(() => {
-        const injectEmail = email => whereTo => {
-          whereTo.href=`mailto:${email}`
+        const injectEmail = ({ email, href }) => whereTo => {
+          whereTo.href = href
           whereTo.innerHTML = email
         }
 
@@ -109,7 +109,7 @@
         .then(response => response.json())
         .then(json => {
           document.querySelectorAll('.shoot-me-a-web')
-          .forEach(injectEmail(json.email))
+          .forEach(injectEmail(json))
         })
       })
     </script>
