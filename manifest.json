@@ -15,8 +15,8 @@
     "sizes": "64x64",
     "type": "image/png"
   }, {
-    "src": "images/app/icon120.png",
-    "sizes": "120x120",
+    "src": "images/app/icon128.png",
+    "sizes": "128x128",
     "type": "image/png"
   }]
 }
