@@ -25,21 +25,21 @@
         --color-green: #0eb46c;
       }
       html, body { all: unset; }
-      html {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-        font-size: 1.1rem;
-        background: #01222b;
-        color: #839496;
-      }
       body {
         display: grid;
         height: 100vh;
         grid-template: "content" 1fr
                        "footer"  56px
                        / 1fr;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        font-size: 1.1rem;
+        background: #01222b;
+        color: #839496;
+        transition: all 0.2s;
       }
       a {
         color: #268bd2;
+        transition: all 0.2s;
       }
       a:hover {
         color: #eee8d5;
@@ -76,16 +76,42 @@
       <p>No product market fit.</p>
       <p>Just simple code.</p>
       <p>Plain old HTML5.</p>
-      <p>No excess styles.</p>
+      <p>Nice modern CSS.</p>
       <p>Some simple ES.</p>
       <p>My happy place.</p>
       <p>It's okay here.</p>
       <p>Welcome.</p>
     </section>
     <footer class="footer">
-      <a title="Shoot me a web?" href="mailto:&#97;&#97;&#114;&#111;&#110;&#64;&#100;&#105;&#103;&#105;&#116;&#97;&#108;&#114;&#111;&#99;&#107;&#101;&#116;&#114;&#121;&#46;&#99;&#111;&#109;">
-          &#97;&#97;&#114;&#111;&#110;&#64;&#100;&#105;&#103;&#105;&#116;&#97;&#108;&#114;&#111;&#99;&#107;&#101;&#116;&#114;&#121;&#46;&#99;&#111;&#109;
-      </a>
+      <a title="Shoot me a web?" class="shoot-me-a-web"></a>
     </footer>
+    <script>
+      (() => {
+        pageLoading = new Promise(resolve => { window.onload = resolve })
+        let globalScriptNumber = 0
+        window.patience = funk => {
+          const localScriptNumber = globalScriptNumber++;
+          pageLoading.then(funk)
+          .catch(err => {
+            console.error(`Script ${localScriptNumber} failed magnificently:`, err)
+          })
+        }
+      })()
+    </script>
+    <script>
+      patience(() => {
+        const injectEmail = email => whereTo => {
+          whereTo.href=`mailto:${email}`
+          whereTo.innerHTML=email
+        }
+
+        return fetch('/shoot-me-a-web.json')
+        .then(response => response.json())
+        .then(json => {
+          document.getElementsByClassName('shoot-me-a-web')
+          .forEach(injectEmail(json.email))
+        })
+      })
+    </script>
   </body>
 </html>
