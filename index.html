@@ -184,7 +184,7 @@
         .then(response => response.json())
         .then(({ href, html }) => {
           document.querySelectorAll('.shoot-me-a-web')
-            .forEach(injectEmail(atob({ href, html })))
+            .forEach(injectEmail({ href, html }))
         })
       })
     </script>
