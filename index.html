@@ -7,9 +7,9 @@
       Let me just tidy up a bit...
     -->
     <title>Digital Rocketry - David Aaron Suddjian</title>
-    <meta name="description" content="Digital Rocketry is an anthology of software playthings and musings by David Aaron Suddjian">
+    <meta name="description" content="Digital Rocketry is a collection of software playthings and musings by David Aaron Suddjian">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#002b36">
+    <meta name="theme-color" content="#001e26">
     <meta name="google-site-verification" content="DOOMp_hrhCyUBOHy6MayX42FbbHuisXU94MCcwIFyKs" />
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="canonical" href="https://digitalrocketry.com/">
@@ -40,9 +40,10 @@
       html, body { all: unset; }
       body {
         display: grid;
-        height: 100vh;
+        height: 100%;
+        min-height: 100vh;
         grid-template: "header"  auto
-                       "content" 3fr
+                       "content" 1fr
                        "footer"  auto
                        / 100vw;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -52,15 +53,16 @@
         background-color: #09071b;
         background-image: linear-gradient(145deg, #001e26 0%, #09071b 100%);
       }
-      body::after {
-        content: "";
+      .grain {
         position: fixed;
         top: -100%;
         left: -100%;
-        background: url('./images/cardboard/cardboard.png');
+        z-index: -10;
+        background-color: #919191; /* average color of grain image, to prevent jarring pop-in */
+        background-image: url('./images/cardboard/cardboard-inverse.png');
         background-repeat: repeat;
-        animation: grain 16s steps(10) infinite;
-        opacity: 0.085;
+        animation: grain 20s steps(10) infinite;
+        opacity: 0.065;
         height: 300%;
         width: 300%;
       }
@@ -78,14 +80,14 @@
         color: #cb4b16;
       }
       h1, h2 {
-        margin: 0;
         color: #eee8d5;
       }
       h1 {
+        margin: calc(3.5vw + 0.3em) 8vw 0 8vw;
         font-weight: 100;
         font-size: calc(2.5em + 1vw);
       }
-      /* font size at 1100: 55px, or 2.5em + 11px */
+      /* font size at width=1100: 55px, or 2.5em + 11px */
       h2 {
         margin: 0.8em 0;
         font-weight: 200;
@@ -93,9 +95,6 @@
       }
       p {
         margin: 1em 0;
-      }
-      header {
-        margin: calc(3.5vw + 0.8em) 8vw 0 8vw;
       }
       .content {
         margin: auto 0;
@@ -132,9 +131,7 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1>Digital Rocketry</h1>
-    </header>
+    <h1>Digital Rocketry</h1>
     <section class="content">
       <h2>A Safe Haven</h2>
       <p>Hello, you seem to have chanced upon my web design zen garden.</p>
@@ -153,6 +150,7 @@
       <span class="item">David Aaron Suddjian</span>
       <a title="Shoot me a web?" class="item shoot-me-a-web" href="#">•••••••••••••••••••••••••</a>
     </footer>
+    <div class="grain"></div>
     <script>
       (() => {
         // globals go here
@@ -174,19 +172,19 @@
     </script>
     <script>
       patience(() => {
-        const injectEmail = email => whereTo => {
+        const injectEmail = email => ({ href, html }) => {
           removeChildren(whereTo)
-          whereTo.href = `mailto:${email}`
-          whereTo.innerHTML = email
+          whereTo.href = href
+          whereTo.innerHTML = html
           whereTo.classList.add('populated')
         }
 
         // please don't spam me
         return fetch('/api/shoot-me-a-web.json')
         .then(response => response.json())
-        .then(json => {
+        .then(({ href, html }) => {
           document.querySelectorAll('.shoot-me-a-web')
-          .forEach(injectEmail(atob(json.encoded_email)))
+            .forEach(injectEmail(atob({ href, html })))
         })
       })
     </script>
