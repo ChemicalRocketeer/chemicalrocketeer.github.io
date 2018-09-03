@@ -17,35 +17,53 @@
     <style>
       :root {
         /* Almost exactly copying the solarized theme, like a total nerd */
-        --color-dark: #002b36;
-        --color-darker: #01222b;
-        --color-med: #839496;
-        --color-light: #fdf6e3;
-        --color-lightish: #eee8d5;
-        --color-blue: #268bd2;
-        --color-violet: #6c71c4;
-        --color-magenta: #d33682;
-        --color-red: #dc322f;
-        --color-orange: #cb4b16;
-        --color-yellow: #b58900;
-        --color-green: #859900;
-        --color-cyan:#2aa198;
+        --color-dark:       #002b36;
+        --color-darker:     #01222b;
+        --color-royal-dark: #221c38;
+        --color-green-dark: #17341e;
+        --color-med:        #8fa0a2;
+        --color-lightish:   #eee8d5;
+        --color-light:      #fdf6e3;
+        --color-blue:       #268bd2;
+        --color-violet:     #6c71c4;
+        --color-magenta:    #d33682;
+        --color-red:        #dc322f;
+        --color-orange:     #cb4b16;
+        --color-yellow:     #b58900;
+        --color-green:      #859900;
+        --color-cyan:       #2aa198;
       }
       * {
         box-sizing: border-box;
         position: relative;
       }
       html, body { all: unset; }
+      /* html {
+        background: url("./images/whitenoise-256x256.png");
+      } */
       body {
         display: grid;
         height: 100vh;
-        grid-template: "content" 1fr
+        grid-template: "header"  auto
+                       "content" 3fr
                        "footer"  auto
                        / 100vw;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
         font-size: 1.1rem;
-        background: #01222b;
-        color: #839496;
+        font-weight: 300;
+        background: linear-gradient(145deg, #17341e 0%, #01222b 40%, #221c38 100%);
+        color: #8fa0a2;
+      }
+      body::after {
+        content: "";
+        position: fixed;
+        background: url('./images/cardboard/cardboard.png');
+        opacity: 0.1;
+        height: 300%;
+        width: 300%;
+      }
+      ::selection {
+        background: #d33682;
       }
       a {
         color: #268bd2;
@@ -58,24 +76,29 @@
         color: #cb4b16;
       }
       h1, h2 {
-        font-weight: light;
-        margin: 0.8em 0;
+        margin: 0;
         color: #eee8d5;
       }
       h1 {
-        font-size: 3em;
+        font-weight: 100;
+        font-size: 3.5em;
       }
       h2 {
-        font-size: 2em;
+        margin: 0.8em 0;
+        font-weight: 200;
+        font-size: 1.8em;
       }
       p {
         margin: 1em 0;
+      }
+      header {
+        margin: 8vw 8vw 0 8vw;
       }
       .content {
         margin: auto 0;
         padding: 0 8vw 24px 8vw;
       }
-      .footer {
+      footer {
         font-size: 0.9em;
         display: flex;
         flex-direction: row;
@@ -84,20 +107,22 @@
         flex-wrap: wrap;
         margin: 16px 0;
       }
-      .footer .item {
+      footer .item {
         margin: 6px 16px;
       }
       .shoot-me-a-web:not(.populated) {
-        color: transparent;
-        text-shadow: 0 0 0.8em #268bd2;
+        color: #8fa0a2;
+        text-decoration: none;
       }
     </style>
   </head>
   <body>
-    <section class="content">
+    <header>
       <h1>Digital Rocketry</h1>
+    </header>
+    <section class="content">
       <h2>A Safe Haven</h2>
-      <p>Hello, you seem to have chanced upon my zen web development garden.</p>
+      <p>Hello, you seem to have chanced upon my web design zen garden.</p>
       <p>No corporate nonsense within these walls.</p>
       <p>No unnecessary libraries.</p>
       <p>No product market fit.</p>
@@ -109,9 +134,9 @@
       <p>It's okay here.</p>
       <p>Welcome.</p>
     </section>
-    <footer class="footer">
+    <footer>
       <span class="item">David Aaron Suddjian</span>
-      <a title="Shoot me a web?" class="item shoot-me-a-web" href="#">xxxxx@digitalrocketry.com</a>
+      <a title="Shoot me a web?" class="item shoot-me-a-web" href="#">•••••••••••••••••••••••••</a>
     </footer>
     <script>
       (() => {
