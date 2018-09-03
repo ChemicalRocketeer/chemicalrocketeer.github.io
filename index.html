@@ -38,9 +38,6 @@
         position: relative;
       }
       html, body { all: unset; }
-      /* html {
-        background: url("./images/whitenoise-256x256.png");
-      } */
       body {
         display: grid;
         height: 100vh;
@@ -52,7 +49,8 @@
         font-size: 1.1rem;
         font-weight: 300;
         color: #8fa0a2;
-        background: linear-gradient(145deg, #001e26 0%, #09071b 100%);
+        background-color: #09071b;
+        background-image: linear-gradient(145deg, #001e26 0%, #09071b 100%);
       }
       body::after {
         content: "";
@@ -60,8 +58,9 @@
         top: -100%;
         left: -100%;
         background: url('./images/cardboard/cardboard.png');
+        background-repeat: repeat;
         animation: grain 16s steps(10) infinite;
-        opacity: 0.09;
+        opacity: 0.085;
         height: 300%;
         width: 300%;
       }
@@ -84,8 +83,9 @@
       }
       h1 {
         font-weight: 100;
-        font-size: 3.5em;
+        font-size: calc(2.5em + 1vw);
       }
+      /* font size at 1100: 55px, or 2.5em + 11px */
       h2 {
         margin: 0.8em 0;
         font-weight: 200;
@@ -95,7 +95,7 @@
         margin: 1em 0;
       }
       header {
-        margin: 8vw 8vw 0 8vw;
+        margin: calc(3.5vw + 0.8em) 8vw 0 8vw;
       }
       .content {
         margin: auto 0;
