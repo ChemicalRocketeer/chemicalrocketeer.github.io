@@ -172,7 +172,7 @@
     </script>
     <script>
       patience(() => {
-        const injectEmail = email => ({ href, html }) => {
+        const injectEmail = ({ href, html }) => whereTo => {
           removeChildren(whereTo)
           whereTo.href = href
           whereTo.innerHTML = html
