@@ -43,13 +43,9 @@
       body {
         margin: 0;
         padding: 0;
-        display: grid;
+        display: flex;
         height: 100%;
         min-height: 100vh;
-        grid-template: "header"  auto
-                       "content" 1fr
-                       "footer"  auto
-                       / 100vw;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
         font-size: 1.1rem;
         font-weight: 300;
@@ -87,7 +83,7 @@
         color: #eee8d5;
       }
       h1 {
-        margin: calc(3.5vw + 0.3em) 8vw 0 8vw;
+        margin-top: 0;
         font-weight: 100;
         font-size: calc(2.5em + 1vw);
       }
@@ -102,8 +98,11 @@
         line-height: 1.6em;
       }
       .content {
-        margin: auto 0;
-        padding: 0 8vw 24px 8vw;
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+        margin: auto;
+        padding: 8vw;
       }
       footer {
         font-size: 0.9em;
@@ -136,15 +135,11 @@
     </style>
   </head>
   <body>
-    <h1>Digital Rocketry</h1>
     <section class="content">
-      <h2>404</h2>
-      <p>There is nothing for you here. Turn back.</p>
+      <h1>404</h1>
+      <p>You should probably turn back</p>
+      <!-- <p>There is nothing for you here. Turn back.</p> -->
     </section>
-    <footer>
-      <span class="item">David Aaron Suddjian</span>
-      <a title="Shoot me a web?" class="item shoot-me-a-web" href="#">&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;</a>
-    </footer>
     <div class="grain"></div>
     <script>
       (() => {
