@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "test": "node ./dev/run-tests.js",
+    "start": "node ./devserver.js"
+  }
+}
