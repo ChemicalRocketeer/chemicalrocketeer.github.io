@@ -3,180 +3,25 @@
   <head>
     <!--
       Hello! I'm flattered you're looking at my source code!
-
-      Let me just tidy up a bit...
+      I'm a little bit proud of it.
     -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/error-layout.css">
+
     <title>Digital Rocketry - David Aaron Suddjian</title>
     <meta name="description" content="Digital Rocketry is a collection of software playthings and musings by David Aaron Suddjian">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#00232d">
     <meta name="robots" content="noindex">
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="manifest" href="/manifest.json">
-    <style>
-      :root {
-        /* Almost exactly copying the solarized theme, like a total nerd */
-        --color-green-dark: #011307;
-        --color-royal-dark: #0b0d29;
-        --color-mega-dark:  #00232d;
-        --color-dark:       #002b36;
-        --color-med:        #8fa0a2;
-        --color-lightish:   #eee8d5;
-        --color-light:      #fdf6e3;
-        --color-blue:       #268bd2;
-        --color-violet:     #6c71c4;
-        --color-magenta:    #d33682;
-        --color-red:        #dc322f;
-        --color-orange:     #cb4b16;
-        --color-yellow:     #b58900;
-        --color-green:      #859900;
-        --color-cyan:       #2aa198;
-      }
-      * {
-        box-sizing: border-box;
-        position: relative;
-      }
-      html {
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        height: 100%;
-        min-height: 100vh;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-        font-size: 1.1rem;
-        font-weight: 300;
-        color: #8fa0a2;
-        background-color: #0b0d29;
-        background-image: linear-gradient(145deg, #00232d 0%, #0b0d29 100%);
-      }
-      .grain {
-        position: fixed;
-        top: -100%;
-        left: -100%;
-        z-index: -10;
-        background-color: #919191; /* average color of grain image, to prevent jarring pop-in */
-        background-image: url('/images/cardboard/cardboard-inverse.png');
-        background-repeat: repeat;
-        animation: grain 20s steps(10) infinite;
-        opacity: 0.045;
-        height: 300%;
-        width: 300%;
-      }
-      ::selection {
-        background: #d33682;
-      }
-      a {
-        color: #268bd2;
-        transition: color 0.2s;
-      }
-      a:hover {
-        color: #eee8d5;
-      }
-      a:active {
-        color: #cb4b16;
-      }
-      h2 {
-        color: #eee8d5;
-      }
-      h1 {
-        margin-top: 0;
-        font-weight: 100;
-        font-size: calc(2.5em + 1vw);
-      }
-      /* font size at width=1100: 55px, or 2.5em + 11px */
-      h2 {
-        margin: 0.8em 0;
-        font-weight: 200;
-        font-size: 1.8em;
-      }
-      p {
-        margin: 0.8em 0;
-        line-height: 1.6em;
-      }
-      .content {
-        align-self: center;
-        justify-self: center;
-        text-align: center;
-        margin: auto;
-        padding: 8vw;
-      }
-      footer {
-        font-size: 0.9em;
-        display: flex;
-        flex-direction: row;
-        align-items: start;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 16px 0;
-      }
-      footer .item {
-        margin: 6px 16px;
-      }
-      .shoot-me-a-web:not(.populated) {
-        color: #8fa0a2;
-        text-decoration: none;
-      }
-      @keyframes grain {
-        0%, 100% { transform:translate(0, 0) }
-        10% { transform:translate(-5%, -10%) }
-        20% { transform:translate(-15%, 5%) }
-        30% { transform:translate(7%, -25%) }
-        40% { transform:translate(-5%, 25%) }
-        50% { transform:translate(-15%, 10%) }
-        60% { transform:translate(15%, 0%) }
-        70% { transform:translate(0%, 15%) }
-        80% { transform:translate(3%, 30%) }
-        90% { transform:translate(-10%, 10%) }
-      }
-    </style>
   </head>
   <body>
     <section class="content">
       <h1>404</h1>
       <p>You should probably turn back</p>
-      <!-- <p>There is nothing for you here. Turn back.</p> -->
+      <!-- No really, there is nothing here -->
     </section>
     <div class="grain"></div>
-    <script>
-      (() => {
-        // globals go here
-        pageLoading = new Promise(resolve => { window.onload = resolve })
-        let globalScriptNumber = 0
-        window.patience = funk => {
-          const localScriptNumber = globalScriptNumber++;
-          pageLoading.then(funk)
-          .catch(err => {
-            console.error(`Script ${localScriptNumber} failed magnificently:`, err)
-          })
-        }
-        window.removeChildren = node => {
-          while (node.firstChild) {
-            node.removeChild(node.firstChild);
-          }
-        }
-      })()
-    </script>
-    <script>
-      patience(() => {
-        const injectEmail = ({ href, html }) => whereTo => {
-          removeChildren(whereTo)
-          whereTo.href = href
-          whereTo.innerHTML = html
-          whereTo.classList.add('populated')
-        }
-
-        // please don't spam me
-        return fetch('/api/shoot-me-a-web.json')
-        .then(response => response.json())
-        .then(({ href, html }) => {
-          document.querySelectorAll('.shoot-me-a-web')
-            .forEach(injectEmail({ href, html }))
-        })
-      })
-    </script>
   </body>
 </html>

@@ -1,4 +1,6 @@
 User-agent: *
 Disallow: /api
+Disallow: /data
+Disallow: /dev
 
 Sitemap: https://digitalrocketry.com/sitemap.xml
