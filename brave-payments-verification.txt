@@ -1,0 +1,4 @@
+This is a Brave Payments publisher verification file.
+
+Domain: digitalrocketry.com
+Token: 8effdbd210702bb372ea9da505eec013ae5fecdd5bbda7f061c10fd7b26e3456
