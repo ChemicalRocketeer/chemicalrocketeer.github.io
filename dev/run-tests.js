@@ -6,8 +6,9 @@ const partition = require('./partition')
 
 const fileNameReg = /\.test\.js$/
 const colorReset = '\x1b[0m'
-const colorGreen = '\x1b[32m'
-const success = colorGreen + '✓' + colorReset
+const green = '\x1b[32m'
+const applyColor = color => text => color + text + colorReset
+const success = applyColor(green, '✓')
 
 const testDirectory = (directory, indent="") => {
   const relativeDirName = path.relative(__dirname, directory)
